@@ -1,3 +1,12 @@
+/*
+stephCurry
+Terry Guan and Shannon Lau
+SoftDev1 pd7
+HW15 -- Sequential Progression
+2017-12-07
+*/
+
+
 // return nth term in the fibonacci sequence
 var fibonacci = function(n){
     if (n == 0)
@@ -38,8 +47,9 @@ var gcd = function(a,b){
 	return gcd(big % small, small); 
 };
 
-// return a random student from a list
-var randomStudent = function(li) {
+// return a random student from li
+var li = ['Terry', 'Shannon', 'Stephen Curry', 'Irene', 'Kyrie Irving', 'Adam'];
+var randomStudent = function() {
     return li[Math.floor(Math.random() * li.length)];
 };
     
@@ -54,12 +64,12 @@ console.log("gcd(15,5): " + gcd(15,5));
 console.log("gcd(0,0): " + gcd(0,0));
 console.log("gcd(15,10): " + gcd(15,10)); 
 
-var item = ['Terry', 'Shannon', 'Stephen Curry', 'Irene', 'Kyrie Irving', 'Adam']
-console.log("randomStudent(item): " + randomStudent(item));
-console.log("randomStudent(item): " + randomStudent(item));
-console.log("randomStudent(item): " + randomStudent(item));
-console.log("randomStudent(item): " + randomStudent(item));
+console.log("randomStudent(): " + randomStudent());
+console.log("randomStudent(): " + randomStudent());
+console.log("randomStudent(): " + randomStudent());
+console.log("randomStudent(): " + randomStudent());
 
+/*
 var buttonCallback = function(e){
     console.log("\n\nhere comes e...");
     console.log(e);
@@ -69,3 +79,28 @@ var buttonCallback = function(e){
 
 var b = document.getElementById('b');
 b.addEventListener('click', buttonCallback);
+*/
+
+var fibCall = function(){
+    arg = document.getElementById('fib_input').value;
+    console.log("\n\nfibonacci(" + arg + "): " + fibonacci(arg));
+};
+
+var fib = document.getElementById('fib_button');
+fib.addEventListener('click', fibCall);
+
+var gcdCall = function(){
+    arg0 = document.getElementById('gcd_input0').value;
+    arg1 = document.getElementById('gcd_input1').value;
+    console.log("\n\ngcd(" + arg0 + ", " + arg1 + "): " + gcd(arg0, arg1));
+};
+
+var g = document.getElementById('gcd_button');
+g.addEventListener('click', gcdCall);
+
+var studentCall = function(){
+    console.log("\n\nrandomStudent(): " + randomStudent());
+}
+
+var stu = document.getElementById('student_button');
+stu.addEventListener('click',studentCall);
